@@ -11,10 +11,14 @@ for l in ls:
         signers = res["items"][0]['signer']["nickName"]
         signableItem = res["items"][0]["signableItem"]
         categoryName = res["items"][0]["signer"]["categoryName"]
+        notes = res["items"][0]["notes"]
+        print(notes)
+        if notes is None:
+            notes = ""
         if categoryName is None:
             categoryName = ''
         if signableItem is None:
             signableItem = ''
         if signers is None:
             signers = ''
-        fp.write(",".join([number, signers, signableItem, categoryName, "CONTACT TO UPGRADE TO LOA\n"]))
+        fp.write(",".join([number, signers, signableItem, categoryName, "CONTACT TO UPGRADE TO LOA\n", notes]))
